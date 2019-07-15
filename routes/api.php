@@ -21,3 +21,8 @@ Route::get('guru','GuruController@index');
 Route::post('guru','GuruController@create');
 Route::put('/guru/{id}','GuruController@update');
 Route::delete('/guru/{id}','GuruController@destroy');
+
+Route::get('siswa','SiswaController@index');
+Route::post('siswa','SiswaController@create');
+Route::put('/siswa/{id}','SiswaController@update');
+Route::delete('/siswa/{id}','SiswaController@destroy');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Siswa;
 
 class SiswaController extends Controller
 {
@@ -25,42 +26,13 @@ class SiswaController extends Controller
     public function create(Request $request)
     {
         $siswa = new Siswa;
-        $guru->NIP = $request->NIP;
-        $guru->nama = $request->nama;
-        $guru->JK = $request->JK;
-    }
+        $siswa->NIS = $request->NIS;
+        $siswa->nama = $request->nama;
+        $siswa->JK = $request->JK;
+        $siswa->save();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+        return "Data berhasil ditambahkan";
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
     }
 
     /**
@@ -72,7 +44,17 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $NIS = $request->NIS;
+        $nama = $request->nama;
+        $JK = $request->JK;
+
+        $siswa = Siswa::find($id);
+        $siswa->NIS = $NIS;
+        $siswa->nama = $nama;
+        $siswa->JK = $JK;
+        $siswa->save();
+
+        return "Data berhasil diupdate";
     }
 
     /**
@@ -83,6 +65,9 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $siswa = Siswa::find($id);
+        $siswa->delete();
+
+        return "Data berhasil dihapus";
     }
 }
