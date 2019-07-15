@@ -36,3 +36,8 @@ Route::get('mapel','MapelController@index');
 Route::post('mapel','MapelController@create');
 Route::put('/mapel/{id}','MapelController@update');
 Route::delete('/mapel/{id}','MapelController@destroy');
+
+Route::get('jadwal','JadwalController@index');
+Route::post('jadwal','JadwalController@create');
+Route::put('/jadwal/{id}','JadwalController@update');
+Route::delete('/jadwal/{id}','JadwalController@destroy');
