@@ -26,3 +26,8 @@ Route::get('siswa','SiswaController@index');
 Route::post('siswa','SiswaController@create');
 Route::put('/siswa/{id}','SiswaController@update');
 Route::delete('/siswa/{id}','SiswaController@destroy');
+
+Route::get('nilai','NilaiController@index');
+Route::post('nilai','NilaiController@create');
+Route::put('/nilai/{id}','NilaiController@update');
+Route::delete('/nilai/{id}','NilaiController@destroy');
