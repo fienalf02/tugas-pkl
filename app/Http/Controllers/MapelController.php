@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Mapel;
 
 class MapelController extends Controller
 {
@@ -21,9 +22,9 @@ class MapelController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        $mapel = new Siswa;
+        $mapel = new Mapel;
         $mapel->mapel = $request->mapel;
         $mapel->KKM = $request->KKM;
         $mapel->save();
@@ -43,10 +44,10 @@ class MapelController extends Controller
         $mapel = $request->mapel;
         $KKM = $request->KKM;
 
-        $mapel = Mapel::find($id);
-        $mapel->mapel = $mapel;
-        $mapel->KKM = $KKM;
-        $mapel->save();
+        $matpel = Mapel::find($id);
+        $matpel->mapel = $mapel;
+        $matpel->KKM = $KKM;
+        $matpel->save();
 
         return "Data berhasil diupdate";
     }
