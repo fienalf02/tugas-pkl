@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Jadwal;
 
 class JadwalController extends Controller
 {
@@ -21,7 +22,7 @@ class JadwalController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $jadwal = new Jadwal;
         $jadwal->id_guru = $request->id_guru;
