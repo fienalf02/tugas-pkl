@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Jurusan;
+use App\Jurusan;
 
 class JurusanController extends Controller
 {
@@ -36,9 +36,9 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        $jurusan = new Jurusan;
-        $jurusan->jurusan = $request->jurusan;
-        $jurusan->save();
+        $jurusans = new Jurusan;
+        $jurusans->jurusan = $request->jurusan;
+        $jurusans->save();
 
         return "Data berhasil dimasukkan";
     }
