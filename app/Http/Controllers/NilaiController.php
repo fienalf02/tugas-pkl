@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Nilai;
 
 class NilaiController extends Controller
 {
@@ -21,7 +22,7 @@ class NilaiController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         $nilai = new Nilai;
         $nilai->id_jadwal = $request->id_jadwal;
