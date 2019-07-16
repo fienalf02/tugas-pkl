@@ -32,6 +32,11 @@ Route::post('nilai','NilaiController@create');
 Route::put('/nilai/{id}','NilaiController@update');
 Route::delete('/nilai/{id}','NilaiController@destroy');
 
+Route::get('detailnilai','DetailNilaiController@index');
+Route::post('detailnilai','DetailNilaiController@create');
+Route::put('/detailnilai/{id}','DetailNilaiController@update');
+Route::delete('/detailnilai/{id}','DetailNilaiController@destroy');
+
 Route::get('mapel','MapelController@index');
 Route::post('mapel','MapelController@create');
 Route::put('/mapel/{id}','MapelController@update');
