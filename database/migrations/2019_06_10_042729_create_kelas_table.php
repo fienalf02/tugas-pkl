@@ -18,6 +18,7 @@ class CreateKelasTable extends Migration
             $table->integer('id_jurusan')->unsigned();
             $table->foreign('id_jurusan')->references('id')->on('jurusans')->onDelete('cascade');
             $table->string('kelas');
+            $table->integer('urutan');
             $table->timestamps();
         });
     }
