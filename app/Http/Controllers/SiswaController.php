@@ -14,7 +14,8 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        return Siswa::all();
+        $siswas = Siswa::all();
+        return view('tabelsiswa', compact('siswas'));
     }
 
     /**

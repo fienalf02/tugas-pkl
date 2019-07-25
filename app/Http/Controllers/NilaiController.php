@@ -14,7 +14,8 @@ class NilaiController extends Controller
      */
     public function index()
     {
-        return Nilai::all();
+        $nilais = Nilai::all();
+        return view('tabelnilai', compact('nilais'));
     }
 
     /**

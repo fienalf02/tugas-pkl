@@ -14,8 +14,8 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::all();
-        return $jurusan;
+        $jurusans = Jurusan::all();
+        return view('tabeljurusan', compact('jurusans'));
     }
 
     /**

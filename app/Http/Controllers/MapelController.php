@@ -14,7 +14,8 @@ class MapelController extends Controller
      */
     public function index()
     {
-        return Mapel::all();
+        $mapels = Mapel::all();
+        return view('tabelmapel', compact('mapels'));
     }
 
     /**

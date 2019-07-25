@@ -14,7 +14,8 @@ class DetailNilaiController extends Controller
      */
     public function index()
     {
-        return Detail_nilai::all();
+        $detail_nilais = Detail_nilai::all();
+        return view('tabeldetailnilai', compact('detail_nilais'));
     }
 
     /**
