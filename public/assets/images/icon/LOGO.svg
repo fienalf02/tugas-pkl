@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X7 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="8.26772in" height="8.26772in" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 8268 8268"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <font id="FontID1" horiz-adv-x="743" font-variant="normal" style="fill-rule:nonzero" font-style="normal" font-weight="700">
+	<font-face 
+		font-family="Pier Sans Bold">
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode="U" horiz-adv-x="720"><path d="M679.995 750.003l-159.992 0 0 -450.998c0,-37.0092 -6.00473,-175.009 -149.007,-175.009 -142.991,0 -151.001,138 -151.001,175.009l0 450.998 -159.992 0 0 -450.998c0,-123.004 51.9938,-308.007 310.993,-308.007 260.002,0 308.998,185.002 308.998,308.007l0 450.998z"/></glyph>
+   <glyph unicode="R" horiz-adv-x="686"><path d="M637 476.998c0,155.002 -123,273.002 -277.003,273.002l-299.999 0 0 -750 160.002 0 0 204.002 122.001 0 137 -204.002 177.998 0 -161.001 238.002c85.0035,45.998 141.001,133.998 141.001,238.996zm-417 -139.997l0 279.999 128.998 0c85.0035,0 127.999,-58.9998 127.999,-140.002 0,-80.9972 -42.9959,-139.997 -127.999,-139.997l-128.998 0z"/></glyph>
+   <glyph unicode="A" horiz-adv-x="743"><path d="M576.999 0l157.006 0 -298.002 750.003 -128.006 0 -297.992 -750.003 156.995 0 56.0042 140.997 297.992 0 56.0042 -140.997zm-299.997 274.005l94.9968 237.999 94.9968 -237.999 -189.994 0z"/></glyph>
+   <glyph unicode="L" horiz-adv-x="565"><path d="M534.999 132.998l-315.003 0 0 617.005 -159.992 0 0 -750.003 474.995 0 0 132.998z"/></glyph>
+   <glyph unicode="I" horiz-adv-x="260"><path d="M219.995 0l0 750.003 -159.992 0 0 -750.003 159.992 0z"/></glyph>
+   <glyph unicode="T" horiz-adv-x="625"><path d="M604.996 617.005l0 132.998 -574.994 0 0 -132.998 207.997 0 0 -617.005 160.003 0 0 617.005 206.994 0z"/></glyph>
+   <glyph unicode="N" horiz-adv-x="773"><path d="M723.805 2.44937l-2.60057 749.841 -160.016 -0.635023 1.82443 -494.693 -340.776 493.614 -164.804 -0.514066 2.60057 -749.841 159.854 0.574545 -1.72363 494.905 339.778 -493.786 165.862 0.534226z"/></glyph>
+   <glyph unicode="K" horiz-adv-x="775"><path d="M409.167 430.838l330.666 315.163 -205.999 1.16925 -311.504 -287.333 1.50188 288.996 -159.834 0.836618 -3.99157 -750.003 159.996 -0.836618 1.50188 281.003 70.3263 60.6699 258.172 -343.336 185.83 -0.997893 -326.664 434.668z"/></glyph>
+   <glyph unicode="E" horiz-adv-x="632"><path d="M602.001 132.999l-382 0 0 186.999 298.001 0 0 134.004 -298.001 0 0 162.999 363.999 0 0 132.999 -524.001 0 0 -750 542.002 0 0 132.999z"/></glyph>
+   <glyph unicode="1" horiz-adv-x="334"><path d="M305.063 749.912l-265.057 -0.0302392 -0.0100797 -133.002 104.92 0.0503987 0 -616.97 160.036 0.110877 0.110877 749.841z"/></glyph>
+   <glyph unicode=" " horiz-adv-x="359"></glyph>
+   <glyph unicode="S" horiz-adv-x="642"><path d="M369.785 439.769c-99.6583,37.8292 -137.367,67.0806 -137.034,112.016 0.614864,63.0588 72.6749,70.3767 98.5697,70.1549 84.962,-0.695501 165.529,-54.4608 200.234,-87.7138l96.8461 100.253c-66.3347,69.4393 -171.96,119.384 -294.923,120.443 -130.875,1.08861 -259.533,-68.7438 -260.692,-204.649 -0.987814,-122.005 127.378,-180.145 209.114,-216.825 98.6201,-44.8447 176.405,-64.5204 175.821,-130.442 -0.544305,-58.0089 -55.8014,-82.5933 -119.687,-82.0087 -85.1032,0.786219 -159.522,62.454 -201.03,103.731l-105.928 -103.045c79.1662,-86.5647 193.803,-132.649 315.707,-133.778 141.036,-1.08861 269.562,66.7984 270.832,213.62 1.12893,123.94 -104.355,183.965 -247.83,238.245z"/></glyph>
+   <glyph unicode="M" horiz-adv-x="974"><path d="M931.397 741.767l-172.958 1.46156 -264.452 -515.538 -255.441 520.074 -172.071 1.5422 -6.52159 -749.861 159.935 -1.32044 3.85046 437.843 220.212 -439.769 96.9771 -0.887016 227.752 435.958 -3.90086 -438.005 160.096 -1.36076 6.52159 749.861z"/></glyph>
+   <glyph unicode="G" horiz-adv-x="859"><path d="M820 431l-341.997 0 0 -123.004 173.995 0c0,-113 -94.9968,-184 -218.001,-184 -152.995,0 -223.995,122.002 -223.995,251 0,129.009 70.9997,250.008 219.995,250.008 85.0034,0 161.005,-53.999 195.998,-104.009l105.001 105.001c-77.9961,87.0086 -189.002,132.006 -300.999,132.006 -212.999,0 -379.998,-165.996 -379.998,-383.006 0,-218.001 161.997,-383.998 365.003,-383.998 113,0 202.003,48.0051 244.995,124.007l0 -115.005 160.003 0 0 431z"/></glyph>
+  </font>
+  <font id="FontID0" horiz-adv-x="667" font-variant="normal" style="fill-rule:nonzero" font-weight="400">
+	<font-face 
+		font-family="Arial">
+	</font-face>
+   <missing-glyph><path d="M0 0z"/></missing-glyph>
+   <glyph unicode=" " horiz-adv-x="277"></glyph>
+  </font>
+  <style type="text/css">
+   <![CDATA[
+    @font-face { font-family:"Pier Sans Bold";src:url("#FontID1") format(svg)}
+    @font-face { font-family:"Arial";src:url("#FontID0") format(svg)}
+    .fil7 {fill:none}
+    .fil0 {fill:#E8E7E8}
+    .fil8 {fill:#9BC3E8}
+    .fil10 {fill:#345082}
+    .fil9 {fill:white}
+    .fil5 {fill:#F37A4B;fill-rule:nonzero}
+    .fil6 {fill:#F7F7F8;fill-rule:nonzero}
+    .fil4 {fill:#9BC3E8;fill-rule:nonzero}
+    .fil3 {fill:#5F86B4;fill-rule:nonzero}
+    .fil1 {fill:#345082;fill-rule:nonzero}
+    .fil2 {fill:#E6E6E6;fill-rule:nonzero}
+    .fnt0 {font-weight:normal;font-size:195.717px;font-family:'Arial'}
+    .fnt2 {font-weight:bold;font-size:361.264px;font-family:'Pier Sans Bold'}
+    .fnt1 {font-weight:bold;font-size:390.587px;font-family:'Pier Sans Bold'}
+    .fnt3 {font-weight:bold;font-size:744.898px;font-family:'Pier Sans Bold'}
+    .fnt4 {font-weight:bold;font-size:869.047px;font-family:'Pier Sans Bold'}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g transform="matrix(0.96569 0.259697 -0.259697 0.96569 3001.07 -2918.51)">
+   <text x="4134" y="4134"  class="fil0 fnt0"> </text>
+  </g>
+  <g id="_597867664">
+   <g>
+    <path class="fil1" d="M2780 4158c0,767 -622,1389 -1390,1389 -767,0 -1389,-622 -1389,-1389 0,-767 622,-1389 1389,-1389 768,0 1390,622 1390,1389z"/>
+    <path class="fil2" d="M2391 4158c0,552 -448,1000 -1001,1000 -552,0 -1000,-448 -1000,-1000 0,-553 448,-1000 1000,-1000 553,0 1001,447 1001,1000z"/>
+    <path class="fil1" d="M732 3875l0 747c0,0 381,-4 527,70 -241,-124 -457,-141 -457,-141l2 -676 -72 0z"/>
+    <path class="fil1" d="M2048 3875l0 747c0,0 -380,-4 -526,70 241,-124 457,-141 457,-141l-2 -676 71 0z"/>
+    <path class="fil3" d="M1274 4657c0,0 -226,-121 -436,-134 0,-313 0,-715 0,-715l72 0 -10 674c0,0 201,32 374,175z"/>
+    <path class="fil3" d="M1507 4657c0,0 226,-121 436,-134 0,-313 0,-715 0,-715l-72 0 10 674c0,0 -201,32 -374,175z"/>
+    <path class="fil4" d="M1363 4698c0,0 -140,-210 -419,-240 0,-225 0,-705 0,-705 0,0 205,29 419,255 0,217 0,690 0,690z"/>
+    <path class="fil4" d="M1418 4698c0,0 140,-210 419,-240 0,-225 0,-705 0,-705 0,0 -205,29 -419,255 0,217 0,690 0,690z"/>
+    <path class="fil5" d="M1649 3731c0,-2 0,-4 0,-5 0,-143 -116,-259 -259,-259 -142,0 -258,116 -258,259 0,1 0,3 0,5l258 182 259 -182z"/>
+    <polygon class="fil5" points="1350,3439 1390,3230 1431,3439 "/>
+    <polygon class="fil5" points="1255,3471 1220,3261 1330,3443 "/>
+    <polygon class="fil5" points="1451,3443 1561,3261 1526,3471 "/>
+    <polygon class="fil5" points="1176,3534 1071,3348 1237,3482 "/>
+    <polygon class="fil5" points="1544,3482 1710,3348 1605,3534 "/>
+    <polygon class="fil5" points="1124,3620 961,3482 1163,3550 "/>
+    <polygon class="fil5" points="1618,3550 1820,3482 1657,3620 "/>
+    <polygon class="fil5" points="1104,3719 905,3646 1117,3640 "/>
+    <polygon class="fil5" points="1663,3640 1876,3646 1676,3719 "/>
+    <polygon class="fil6" points="1,5400 178,5115 1,4830 2780,4830 2603,5115 2780,5400 "/>
+    <polygon class="fil3" points="1,5357 178,5072 1,4788 2780,4788 2603,5072 2780,5357 "/>
+    <polygon class="fil4" points="254,3549 319,3568 372,3525 374,3592 431,3629 367,3652 350,3717 309,3664 241,3668 279,3612 "/>
+    <polygon class="fil4" points="2526,3549 2461,3568 2409,3525 2407,3592 2350,3629 2413,3652 2430,3717 2472,3664 2539,3668 2501,3612 "/>
+    <circle class="fil7" cx="1394" cy="4104" r="1384"/>
+    <text x="711" y="3379"  class="fil8 fnt1"><tspan rotate="325">S</tspan></text>
+    <text x="912" y="3219"  class="fil8 fnt1"><tspan rotate="343">M</tspan></text>
+    <text x="1280" y="3119"  class="fil8 fnt1"><tspan rotate="0">K</tspan></text>
+    <text x="1574" y="3124"  class="fil8 fnt1"><tspan rotate="19">N</tspan></text>
+    <text x="1857" y="3230"  class="fil8 fnt1"><tspan rotate="33"> </tspan></text>
+    <text x="1978" y="3303"  class="fil8 fnt1"><tspan rotate="42">1</tspan></text>
+    <text x="295" y="5208"  class="fil9 fnt2">SUNGAILIAT</text>
+   </g>
+   <g>
+    <text x="2893" y="4045"  class="fil10 fnt3">SMK NEGERI 1</text>
+    <text x="2956" y="4780"  class="fil10 fnt4">SUNGAILIAT</text>
+   </g>
+  </g>
+ </g>
+</svg>
