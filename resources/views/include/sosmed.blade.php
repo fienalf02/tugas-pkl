@@ -1,0 +1,2 @@
+<a href="{{('https://www.instagram.com/smkn1cirebon/?hl=id')}}" target="_blank"><p style="color: rgb(245, 115, 63)"><i class="fab fa-instagram fa-3x ml-9" ></i></p></a>
+<a href="{{('https://www.facebook.com/SMKN-1-CIREBON-161905567210382/?ref=page_internal')}}" target="_blank"> <p style="color: rgb(41, 73, 128) " ><i class="fab fa-facebook-square fa-3x ml-3"></i></p></a></div>

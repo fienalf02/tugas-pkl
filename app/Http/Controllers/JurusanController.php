@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\JurusanExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Jurusan;
+use PDF;
 
 class JurusanController extends Controller
 {
@@ -14,8 +17,19 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusans = Jurusan::all();
-        return view('tabeljurusan', compact('jurusans'));
+        $jurusan = Jurusan::all();
+        return view('admin/jurusan/tabeljurusan', compact('jurusan'));
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexguru()
+    {
+        $jurusan = Jurusan::all();
+        return view('guru/jurusan/tabeljurusan', compact('jurusan'));
     }
 
     /**
@@ -25,7 +39,7 @@ class JurusanController extends Controller
      */
     public function create(Request $request)
     {
-        //
+        return view('admin/jurusan/formjurusan');
     }
 
     /**
@@ -36,11 +50,16 @@ class JurusanController extends Controller
      */
     public function store(Request $request)
     {
-        $jurusans = new Jurusan;
-        $jurusans->jurusan = $request->jurusan;
-        $jurusans->save();
+        // $jurusans = new Jurusan;
+        // $jurusans->jurusan = $request->jurusan;
+        // $jurusans->save();
 
-        return "Data berhasil dimasukkan";
+        // return "jurusan berhasil dimasukkan";
+
+        $jurusan = new Jurusan();
+        $jurusan->jurusan = $request->jurusan;
+        $jurusan->save();
+        return redirect()->route('jurusan.index')->with('alert-success','Berhasil Menambahkan jurusan');
     }
 
     /**
@@ -62,7 +81,8 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        //
+        $jurusan = Jurusan::where('id',$id)->get();
+        return view('admin/jurusan/editjurusan',compact('jurusan')); 
     }
 
     /**
@@ -74,12 +94,17 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $jurusan = $request->jurusan;
+        // $jurusan = $request->jurusan;
 
-        $jurusan = Jurusan::find($id);
-        $jurusan->jurusan = $jurusan;
+        // $jurusan = Jurusan::find($id);
+        // $jurusan->jurusan = $jurusan;
 
-        return "Data berhasil diupdate";
+        // return "jurusan berhasil diupdate";
+
+        $jurusan = Jurusan::where('id',$id)->first();
+        $jurusan->jurusan = $request->jurusan;
+        $jurusan->save();
+        return redirect()->route('jurusan.index')->with('alert-success','jurusan berhasil diubah');
     }
 
     /**
@@ -90,9 +115,36 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        $jurusan = Jurusan::find($id);
-        $jurusan->delete();
+        // $jurusan = Jurusan::find($id);
+        // $jurusan->delete();
 
-        return "Data berhasil dihapus";
+        // return "jurusan berhasil dihapus";
+
+        $jurusan = Jurusan::where('id',$id)->first();
+        $jurusan->delete();
+        return redirect()->route('jurusan.index')->with('alert-success','jurusan berhasil dihapus');
+    }
+
+    public function search(Request $request)
+	{
+        $search = $request->get('search');
+        
+		$jurusan = Jurusan::where('jurusan','like',"%".$search."%")->get();
+ 
+    	return view('admin/jurusan/tabeljurusan', compact('jurusan', 'search'));
+ 
+    }
+
+    public function pdf()
+    {
+        $jurusan = Jurusan::all();
+
+        $pdf = PDF::loadView('admin/jurusan/pdfjurusan', compact('jurusan'));
+        return $pdf->stream('pdfjurusan.pdf');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new JurusanExport, 'jurusan.xlsx');
     }
 }

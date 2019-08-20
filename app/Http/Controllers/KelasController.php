@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\KelasExport;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
 use App\Kelas;
+use App\Jurusan;
+use PDF;
 
 class KelasController extends Controller
 {
@@ -14,8 +18,23 @@ class KelasController extends Controller
      */
     public function index()
     {
-        $kelas = Kelas::all();
-        return view('tabelkelas', compact('kelas'));  
+        $kelas = Kelas::select('kelas.*', 'jurusans.jurusan')
+                ->leftJoin('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')
+                ->orderBy('kelas')->get();
+        return view('admin/kelas/tabelkelas', compact('kelas')); 
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function indexguru()
+    {
+        $kelas = Kelas::select('kelas.*', 'jurusans.jurusan')
+                ->leftJoin('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')
+                ->orderBy('kelas')->get();
+        return view('guru/kelas/tabelkelas', compact('kelas')); 
     }
 
     /**
@@ -25,7 +44,8 @@ class KelasController extends Controller
      */
     public function create()
     {
-        //
+        $jurusan = Jurusan::all();
+        return view('admin/kelas/formkelas', compact('jurusan'));
     }
 
     /**
@@ -36,12 +56,19 @@ class KelasController extends Controller
      */
     public function store(Request $request)
     {
-        $kelas =  new Kelas;
-        $kelas->id_jurusan = $request->id_jurusan;
-        $kelas->kelas = $request->kelas;
-        $kelas->save();
+        // $kelas =  new Kelas;
+        // $kelas->id_jurusan = $request->id_jurusan;
+        // $kelas->kelas = $request->kelas;
+        // $kelas->save();
 
-        return "Data berhasil dimasukkan";
+        // return "Data berhasil dimasukkan";
+
+        $kelas = new Kelas();
+        $kelas->kelas = $request->kelas;
+        $kelas->id_jurusan = $request->id_jurusan;
+        $kelas->urutan = $request->urutan;
+        $kelas->save();
+        return redirect()->route('kelas.index')->with('alert-success','Berhasil Menambahkan Data');
     }
 
     /**
@@ -63,7 +90,9 @@ class KelasController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kelas = Kelas::where('id', $id)->get();
+        $jurusan = Jurusan::all();
+        return view('admin/kelas/editkelas', compact('kelas', 'jurusan')); 
     }
 
     /**
@@ -75,15 +104,22 @@ class KelasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $id_jurusan = $request->id_jurusan;
-        $kelas = $request->kelas;
+        // $id_jurusan = $request->id_jurusan;
+        // $kelas = $request->kelas;
 
-        $kelass = Kelas::find($id);
-        $kelass->id_jurusan = $id_jurusan;
-        $kelass->kelas = $kelas;
-        $kelass->save();
+        // $kelass = Kelas::find($id);
+        // $kelass->id_jurusan = $id_jurusan;
+        // $kelass->kelas = $kelas;
+        // $kelass->save();
 
-        return "Data berhasil diUpdate";
+        // return "Data berhasil diUpdate";
+
+        $kelas = Kelas::where('id',$id)->first();
+        $kelas->kelas = $request->kelas;
+        $kelas->id_jurusan = $request->id_jurusan;
+        $kelas->urutan = $request->urutan;
+        $kelas->save();
+        return redirect()->route('kelas.index')->with('alert-success','Data berhasil diubah');
     }
 
     /**
@@ -94,9 +130,40 @@ class KelasController extends Controller
      */
     public function destroy($id)
     {
-        $kelas = Kelas::find($id);
-        $kelas->delete();
+        // $kelas = Kelas::find($id);
+        // $kelas->delete();
 
-        return "Data berhasil dihapus";
+        // return "Data berhasil dihapus";
+
+        $kelas = Kelas::where('id',$id)->first();
+        $kelas->delete();
+        return redirect()->route('kelas.index')->with('alert-success','Data berhasil dihapus');
+    }
+
+    public function search(Request $request)
+	{
+        $search = $request->get('search');
+        
+        $kelas = Kelas::select('kelas.*', 'jurusans.jurusan')
+        ->leftJoin('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')
+        ->where('kelas.kelas', 'LIKE', '%'.$search.'%')
+        ->orWhere('jurusans.jurusan', $search)->get();
+ 
+    	return view('admin/kelas/tabelkelas', compact('kelas', 'search'));
+ 
+    }
+
+    public function pdf()
+    {
+        $kelas = Kelas::select('kelas.*', 'jurusans.jurusan')
+                ->leftJoin('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')->get();
+
+        $pdf = PDF::loadView('admin/kelas/pdfkelas', compact('kelas'));
+        return $pdf->stream('pdfkelas.pdf');
+    }
+
+    public function export() 
+    {
+        return Excel::download(new KelasExport, 'kelas.xlsx');
     }
 }

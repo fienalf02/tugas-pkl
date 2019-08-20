@@ -18,7 +18,7 @@ class CreateJadwalsTable extends Migration
             $table->string('hari');
             $table->char('jam');
             $table->string('ruangan');
-            $table->integer('tahun_ajaran');
+            $table->char('tahun_ajaran');
             $table->integer('id_guru')->unsigned();
             $table->foreign('id_guru')->references('id')->on('gurus')->onDelete('cascade');
             $table->integer('id_mapel')->unsigned();
