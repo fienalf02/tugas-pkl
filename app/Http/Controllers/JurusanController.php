@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\JurusanExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Jurusan;
 use PDF;
 
@@ -17,7 +18,7 @@ class JurusanController extends Controller
      */
     public function index()
     {
-        $jurusan = Jurusan::all();
+        $jurusan = Jurusan::paginate(5);
         return view('admin/jurusan/tabeljurusan', compact('jurusan'));
     }
 
@@ -28,7 +29,7 @@ class JurusanController extends Controller
      */
     public function indexguru()
     {
-        $jurusan = Jurusan::all();
+        $jurusan = Jurusan::paginate(5);
         return view('guru/jurusan/tabeljurusan', compact('jurusan'));
     }
 
@@ -59,7 +60,7 @@ class JurusanController extends Controller
         $jurusan = new Jurusan();
         $jurusan->jurusan = $request->jurusan;
         $jurusan->save();
-        return redirect()->route('jurusan.index')->with('alert-success','Berhasil Menambahkan jurusan');
+        return redirect()->route('jurusan.index')->withSuccessMessage('Berhasil Menambahkan Data');
     }
 
     /**
@@ -81,7 +82,7 @@ class JurusanController extends Controller
      */
     public function edit($id)
     {
-        $jurusan = Jurusan::where('id',$id)->get();
+        $jurusan = Jurusan::where('id',$id)->paginate(5);
         return view('admin/jurusan/editjurusan',compact('jurusan')); 
     }
 
@@ -104,7 +105,7 @@ class JurusanController extends Controller
         $jurusan = Jurusan::where('id',$id)->first();
         $jurusan->jurusan = $request->jurusan;
         $jurusan->save();
-        return redirect()->route('jurusan.index')->with('alert-success','jurusan berhasil diubah');
+        return redirect()->route('jurusan.index')->withSuccessMessage('Berhasil Mengubah Data');
     }
 
     /**
@@ -115,23 +116,29 @@ class JurusanController extends Controller
      */
     public function destroy($id)
     {
-        // $jurusan = Jurusan::find($id);
-        // $jurusan->delete();
-
-        // return "jurusan berhasil dihapus";
 
         $jurusan = Jurusan::where('id',$id)->first();
         $jurusan->delete();
-        return redirect()->route('jurusan.index')->with('alert-success','jurusan berhasil dihapus');
+        return redirect()->route('jurusan.index')->withSuccessMessage('Berhasil Menghapus Data');
     }
 
     public function search(Request $request)
 	{
         $search = $request->get('search');
         
-		$jurusan = Jurusan::where('jurusan','like',"%".$search."%")->get();
+		$jurusan = Jurusan::where('jurusan','like',"%".$search."%")->paginate(5);
  
     	return view('admin/jurusan/tabeljurusan', compact('jurusan', 'search'));
+ 
+    }
+
+    public function searchguru(Request $request)
+	{
+        $search = $request->get('search');
+        
+		$jurusan = Jurusan::where('jurusan','like',"%".$search."%")->paginate(5);
+ 
+    	return view('guru/jurusan/tabeljurusan', compact('jurusan', 'search'));
  
     }
 
@@ -140,6 +147,14 @@ class JurusanController extends Controller
         $jurusan = Jurusan::all();
 
         $pdf = PDF::loadView('admin/jurusan/pdfjurusan', compact('jurusan'));
+        return $pdf->stream('pdfjurusan.pdf');
+    }
+
+    public function pdfguru()
+    {
+        $jurusan = Jurusan::all();
+
+        $pdf = PDF::loadView('guru/jurusan/pdfjurusan', compact('jurusan'));
         return $pdf->stream('pdfjurusan.pdf');
     }
 

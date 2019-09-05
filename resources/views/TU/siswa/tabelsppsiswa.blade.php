@@ -18,7 +18,7 @@
 <body class="animsition">
     <div class="page-wrapper">
     
-    @include('include.header')
+    @include('include.headertu')
 
     <!-- HEADER DESKTOP-->
     <header class="header-desktop">
@@ -27,56 +27,12 @@
                         <div class="header-wrap">
                             <div class="judul">Data Siswa</div>
                             <div class="btnn">
-                            @include('include.sosmed')
-                        </form>
-                        
-                           <!-- <div > 
-                               
-
-                           <button> <p style="color: rgb(107, 107, 233)"> <i class="fab fa-twitter-square fa-3x"></i></p></button>
-                          </div> -->
-                            
-                
-
-                          <div class="account-wrap">
-                               @if (Auth::guest())
-                                    <li><a href="{{ route('login') }}">Login</a></li>
-                                    <li><a href="{{ route('register') }}">Register</a></li>
-                                @else
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="content">
-                                            <i class="fas fa-user fa-lg fa-2.5x"></i>  <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <i class="fas fa-user-circle fa-4x"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">{{ Auth::user()->name }}</a>
-                                                    </h5>
-                                                    <span class="email">{{ Auth::user()->email }}</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <div class="account-dropdown__item">
-                                                    <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                        <i class="zmdi zmdi-power"></i>Logout</a>
-                                                
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-                        </div></div></div>
-            </header>
+                        @include('include.sosmed')
+                        @include('include.forlogin')
+                    </div>
+                </div>
+            </div>
+    </header>
             <!-- HEADER DESKTOP-->
              
   <!-- MAIN CONTENT-->
@@ -90,11 +46,10 @@
                     <div class="col-md-12">
                         
                         <!-- DATA TABLE -->
-                        <h3 class="title-5 m-b-35">data table</h3>
 
-                        <form class="form-header " action="{{ route('siswa.search') }}" method="GET" style="float: right">
+                        <form class="form-header " action="{{ route('siswa.searchTU') }}" method="GET" style="float: right">
                         {{ csrf_field() }}
-                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas" />
                             <button class="au-btn--submit" type="submit"  style="background-color: rgb(41, 73, 128) " >
                                 <i class="zmdi zmdi-search" ></i>
                             </button>
@@ -115,7 +70,7 @@
                                             <select class="js-select2" name="kelas" id="id_kelas" >
                                                 <option selected="selected">Filter Kelas</option>
                                                 @foreach($kelas as $k)
-                                                     <option value="{{ $k->id}}">{{ $k->kelas}} {{ $k->jurusan}} {{ $k->urutan}}</option>
+                                                     <option value="{{ $k->id}}" {{$k->id == $search ? 'selected':'' }}>{{ $k->kelas}} {{ $k->jurusan}} {{ $k->urutan}}</option>
                                                 @endforeach
                                             </select>
                                             <div class="dropDownSelect2"></div>
@@ -147,7 +102,7 @@
                                         <td>{{$s->kelas}} {{$s->jurusan}} {{$s->urutan}}</td>
                                         <td>
                                         <div class="table-data-feature">
-                                                <a href="{{ route('pembayaran.show', $s->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Nilai">
+                                                <a href="{{ route('pembayaran.showTU', $s->id_siswa) }}" class="item" data-toggle="tooltip" data-placement="top" title="SPP">
                                                     <i class="zmdi zmdi-info"></i>
                                                 </a>
                                             </div>
@@ -158,6 +113,7 @@
                                 </tbody>
                                 @endif
                             </table>
+                            {{ $siswa->links() }}
                         </div>
                         <!-- END DATA TABLE -->
                     </div>
@@ -170,7 +126,7 @@
 
     function myFunction() {
         var x = document.getElementById("id_kelas").value;
-        document.location.href='tabelsiswa?search='+x;        
+        document.location.href='tabelsppsiswaTU?search='+x;        
     }
     </script>
 

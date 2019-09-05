@@ -5,13 +5,13 @@ namespace App\Exports;
 use App\Guru;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class UsersExport implements FromCollection
+class GuruExport implements FromCollection
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Guru::select('gurus.NIP', 'gurus.nama', 'gurus.JK')->get();
+        return Guru::select('gurus.NIP', 'gurus.nama_guru', 'gurus.JK')->get();
     }
 }

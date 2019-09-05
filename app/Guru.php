@@ -3,13 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Guru;
 use App\Jadwal;
 use App\Siswa_kelas;
+use App\User;
 
 class Guru extends Model
 {
-    protected $table = "gurus";
     protected $fillable = [
         'NIP', 'nama', 'JK', 'password'
     ];
@@ -21,7 +20,12 @@ class Guru extends Model
 
     public function siswa_kelas()
     {
-        return $this->hasOne('App\Siswa_kelas');
+        return $this->hasMany('App\Siswa_kelas');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 
 }

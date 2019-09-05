@@ -25,58 +25,14 @@
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <div class="judul">Tabel Jadwal</div>
+                            <div class="judul">Data Jadwal</div>
                             <div class="btnn">
-                            @include('include.sosmed')
-                        </form>
-                        
-                           <!-- <div > 
-                               
-
-                           <button> <p style="color: rgb(107, 107, 233)"> <i class="fab fa-twitter-square fa-3x"></i></p></button>
-                          </div> -->
-                            
-                
-
-                          <div class="account-wrap">
-                               @if (Auth::guest())
-                                    <li><a href="{{ route('login') }}">Login</a></li>
-                                    <li><a href="{{ route('register') }}">Register</a></li>
-                                @else
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="content">
-                                            <i class="fas fa-user fa-lg fa-2.5x"></i>  <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <i class="fas fa-user-circle fa-4x"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">{{ Auth::user()->name }}</a>
-                                                    </h5>
-                                                    <span class="email">{{ Auth::user()->email }}</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <div class="account-dropdown__item">
-                                                    <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                        <i class="zmdi zmdi-power"></i>Logout</a>
-                                                
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-                        </div></div></div>
-            </header>
+                        @include('include.sosmed')
+                        @include('include.forlogin')
+                    </div>
+                </div>
+            </div>
+    </header>
             <!-- HEADER DESKTOP-->
              
   <!-- MAIN CONTENT-->
@@ -133,7 +89,7 @@
                                                 <div class="col col-md-4">
                                                     <label for="select" class=" form-control-label">Guru</label>
                                                 </div>
-                                                <div class="col-3">
+                                                <div class="col-5">
                                                     <select name="id_guru" id="select" class="form-control">
                                                         <option value="0">-Pilihan-</option>
                                                         @foreach($guru as $g)
@@ -146,7 +102,7 @@
                                                 <div class="col col-md-4">
                                                     <label for="select" class=" form-control-label">Mata Pelajaran</label>
                                                 </div>
-                                                <div class="col-3">
+                                                <div class="col-5">
                                                     <select name="id_mapel" id="select" class="form-control">
                                                         <option value="0">-Pilihan-</option>
                                                         @foreach($mapel as $m)

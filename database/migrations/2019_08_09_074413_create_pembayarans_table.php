@@ -18,11 +18,10 @@ class CreatePembayaransTable extends Migration
             $table->integer('id_siswakelas')->unsigned();
             $table->foreign('id_siswakelas')->references('id')->on('siswa_kelas')->onDelete('cascade');
             $table->string('bulan');
-            $table->date('jatuh_tempo');
-            $table->date('tgl_bayar');
-            $table->integer('nomor');
+            $table->char('jatuh_tempo');
+            $table->char('tgl_bayar')->nullable();
             $table->integer('jumlah');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->timestamps();
         });
     }

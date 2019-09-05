@@ -163,6 +163,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
+        RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
 
 
@@ -231,8 +232,9 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-        'date_format' => 'm/d/Y',
-        'date_format_js' => 'mm/dd/yy',
+        'date_format' => 'd/m/Y',
+        'date_format_js' => 'dd/mm/yy',
+        'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ],
 
 ];

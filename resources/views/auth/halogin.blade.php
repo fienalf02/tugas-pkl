@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -34,11 +34,11 @@
 				<form class="login100-form validate-form" method="POST" action="{{ route('login') }}">
                         @csrf
 					<span class="login100-form-title">
-						Member Login
+						Login 
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Username is required">
-						<input class="input100" type="text" name="username" placeholder="Username" value="{{ old('username') }}">
+						<input class="input100" type="text" name="username" placeholder="Username" autocomplete="off">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-user" aria-hidden="true"></i>
@@ -46,7 +46,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" placeholder="Password" value="{{ old('password') }}">
+						<input class="input100" type="password" name="password" placeholder="Password" autocomplete="off">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -58,22 +58,12 @@
 						{{ __('Login') }}
 						</button>
 					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Forgot
-						</span>
-						<a class="txt2" href="#">
-							Username / Password?
-						</a>
-					</div>
-
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
-							Create your Account
-							<i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
-						</a>
-					</div>
+                        <a class="txt2" href="">
+                        Register
+                        <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+                        </a>
+                    </div>
 				</form>
 			</div>
 		</div>

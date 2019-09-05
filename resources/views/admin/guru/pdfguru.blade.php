@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="/css/app.css" type="text/css">
     <style>
     table, th, td {
-        border: 1px solid black;
         border-collapse: collapse;
     }
     th, td {
@@ -16,6 +15,7 @@
     }
     table#t01 tr:nth-child(even) {
         background-color: white;
+        border: 1px solid black;
     }
     table#t01 tr:nth-child(odd) {
         background-color: white;
@@ -27,10 +27,23 @@
     h3 {
         text-align: center;
     }
+    
 </style>
 </head>
+    <table align="center">
+    <tr>
+    <td><img src="{{ ('assets/images/icon/logooo.png') }}" alt="logo" width="80", height="80"></td>
+    <td><center>
+        <font size="5">LAPORAN DATA GURU</font><br>
+        <font size="6"><b>SMK NEGERI 1 SUNGAILIAT</b></font><br>
+        <font size="3"><i>Jalan Singayudha 1, Sungailiat-Prov. Bangka Belitung telp. (0717) 92269</i></font>
+    </td>
+    </tr>
+    <tr>
+        <td colspan="2"><hr> </td>
+    </tr>
+    </table>
 <body>
-    <h3>Laporan guru</h3>
     <div class="container">
     <div class="card">
     <div class="card-body">

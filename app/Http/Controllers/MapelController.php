@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\MapelExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Mapel;
 use PDF;
 
@@ -17,7 +18,7 @@ class MapelController extends Controller
      */
     public function index()
     {
-        $mapel = Mapel::all();
+        $mapel = Mapel::paginate(10);
         return view('admin/mapel/tabelmapel', compact('mapel'));
     }
 
@@ -28,7 +29,7 @@ class MapelController extends Controller
      */
     public function indexguru()
     {
-        $mapel = Mapel::all();
+        $mapel = Mapel::paginate(5);
         return view('guru/mapel/tabelmapel', compact('mapel'));
     }
 
@@ -39,7 +40,7 @@ class MapelController extends Controller
      */
     public function create()
     {
-        $mapel = Mapel::all();
+        $mapel = Mapel::paginate(5);
         return view('admin/mapel/formmapel', compact('mapel'));
     }
 
@@ -55,7 +56,7 @@ class MapelController extends Controller
         $mapel->mapel = $request->mapel;
         $mapel->KKM = $request->KKM;
         $mapel->save();
-        return redirect()->route('mapel.index')->with('alert-success','Berhasil Menambahkan mapel');
+        return redirect()->route('mapel.index')->withSuccessMessage('Berhasil Menambahkan Data');
     }
 
     /**
@@ -66,7 +67,7 @@ class MapelController extends Controller
      */
     public function edit($id)
     {
-        $mapel = Mapel::where('id', $id)->get();
+        $mapel = Mapel::where('id', $id)->paginate(5);
         return view('admin/mapel/editmapel', compact('mapel')); 
     }
 
@@ -93,7 +94,7 @@ class MapelController extends Controller
         $mapel->mapel = $request->mapel;
         $mapel->KKM = $request->KKM;
         $mapel->save();
-        return redirect()->route('mapel.index')->with('alert-success','mapel berhasil diubah');
+        return redirect()->route('mapel.index')->withSuccessMessage('Berhasil Mengubah Data');
     }
 
     /**
@@ -111,7 +112,7 @@ class MapelController extends Controller
 
         $mapel = Mapel::where('id', $id)->first();
         $mapel->delete();
-        return redirect()->route('mapel.index')->with('alert-success','mapel berhasil dihapus');
+        return redirect()->route('mapel.index')->withSuccessMessage('Berhasil Menghapus Data');
     }
 
     public function search(Request $request)
@@ -120,13 +121,33 @@ class MapelController extends Controller
         
         $mapel = Mapel::where('mapel','like',"%".$search."%")
                 ->orWhere('KKM','like',"%".$search."%")
-                ->get();
+                ->paginate(5);
  
     	return view('admin/mapel/tabelmapel', compact('mapel', 'search'));
  
     }
 
+    public function searchguru(Request $request)
+	{
+        $search = $request->get('search');
+        
+        $mapel = Mapel::where('mapel','like',"%".$search."%")
+                ->orWhere('KKM','like',"%".$search."%")
+                ->paginate(5);
+ 
+    	return view('guru/mapel/tabelmapel', compact('mapel', 'search'));
+ 
+    }
+
     public function pdf()
+    {
+        $mapel = Mapel::all();
+
+        $pdf = PDF::loadView('admin/mapel/pdfmapel', compact('mapel'));
+        return $pdf->stream('pdfmapel.pdf');
+    }
+
+    public function pdfguru()
     {
         $mapel = Mapel::all();
 

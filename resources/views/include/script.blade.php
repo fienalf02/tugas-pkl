@@ -1,5 +1,5 @@
 <!-- Jquery JS-->
-<script src="{{ asset('assets/vendor/jquery-3.2.1.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/jquery-3.2.1.min.js') }}"></script>
     <!-- Bootstrap JS-->
     <script src="{{ asset('assets/vendor/bootstrap-4.1/popper.min.js') }}"></script>
     <script src="{{ asset('assets/vendor/bootstrap-4.1/bootstrap.min.js') }}"></script>
@@ -24,13 +24,16 @@
     <script src="{{ asset('jquery-ui/external/jquery/jquery.js') }}" type="text/javascript"></script>
     <script src="{{ asset('jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.js"></script>
+    @include('sweetalert::alert')
+    <script src="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/js/bootstrap-datepicker.js"></script>
 
     <script type="text/javascript">
 
     $('#date').datepicker({  
 
-       format: 'yyyy-mm-dd',
+       format: 'dd-mm-yyyy',
 
      });  
 
@@ -40,7 +43,20 @@
 
     $('#date2').datepicker({  
 
-      format: 'yyyy-mm-dd',
+      format: 'dd-mm-yyyy',
+
+    });  
+
+    </script>
+
+    <script type="text/javascript">
+
+    $('#date3').datepicker({  
+
+      format: 'MM yyyy',
+                viewMode: "months",
+                minViewMode: "months",
+                autoClose: true
 
     });  
 

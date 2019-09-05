@@ -18,65 +18,21 @@
 <body class="animsition">
     <div class="page-wrapper">
     
-    @include('include.header')
+    @include('include.headertu')
 
     <!-- HEADER DESKTOP-->
     <header class="header-desktop">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
-                            <div class="judul">Tabel Pembayaran</div>
+                            <div class="judul">Data Pembayaran</div>
                             <div class="btnn">
-                            @include('include.sosmed')
-                        </form>
-                        
-                           <!-- <div > 
-                               
-
-                           <button> <p style="color: rgb(107, 107, 233)"> <i class="fab fa-twitter-square fa-3x"></i></p></button>
-                          </div> -->
-                            
-                
-
-                          <div class="account-wrap">
-                               @if (Auth::guest())
-                                    <li><a href="{{ route('login') }}">Login</a></li>
-                                    <li><a href="{{ route('register') }}">Register</a></li>
-                                @else
-                                    <div class="account-item clearfix js-item-menu">
-                                        <div class="content">
-                                            <i class="fas fa-user fa-lg fa-2.5x"></i>  <a class="js-acc-btn" href="#">{{ Auth::user()->name }}</a>
-                                        </div>
-                                        <div class="account-dropdown js-dropdown">
-                                            <div class="info clearfix">
-                                                <div class="image">
-                                                    <i class="fas fa-user-circle fa-4x"></i>
-                                                </div>
-                                                <div class="content">
-                                                    <h5 class="name">
-                                                        <a href="#">{{ Auth::user()->name }}</a>
-                                                    </h5>
-                                                    <span class="email">{{ Auth::user()->email }}</span>
-                                                </div>
-                                            </div>
-                                            <div class="account-dropdown__footer">
-                                                <div class="account-dropdown__item">
-                                                    <a href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                                        <i class="zmdi zmdi-power"></i>Logout</a>
-                                                
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    {{ csrf_field() }}
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                @endif
-                        </div></div></div>
-            </header>
+                        @include('include.sosmed')
+                        @include('include.forlogin')
+                    </div>
+                </div>
+            </div>
+    </header>
             <!-- HEADER DESKTOP-->
              
   <!-- MAIN CONTENT-->
@@ -95,9 +51,9 @@
                             <h3 class="title-5 m-b-35">kelas : {{ $detail_siswa->jurusan}} {{ $detail_siswa->urutan}}</h3>
                             <h3 class="title-5 m-b-35">Wali kelas : {{ $detail_siswa->nama_guru}}</h3>
 
-                        <form class="form-header " action="{{ route('pembayaran.search', $id) }}" method="GET" style="float: right">
+                        <form class="form-header " action="{{ route('pembayaran.searchTU', $id) }}" method="GET" style="float: right">
                         {{ csrf_field() }}
-                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas" />
                             <button class="au-btn--submit" type="submit"  style="background-color: rgb(41, 73, 128) " >
                                 <i class="zmdi zmdi-search" ></i>
                             </button>
@@ -105,13 +61,13 @@
 
                         <div class="table-data__tool">
                             <div class="table-data__tool-left">
-                            <a href="{{ route('pembayaran.create.guru', $id) }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
+                            <a href="{{ route('pembayaran.createTU', $id) }}" class="au-btn au-btn-icon au-btn--green au-btn--small">
                                     <i class="zmdi zmdi-plus"></i>add item</a>
                                 <div class="rs-select2--dark rs-select2--sm rs-select2--dark2">
                                     <select class="js-select2" name="type" onChange="document.location.href=this.options[this.selectedIndex].value;">
-                                        <option selected="selected">Export</option>
+                                        <option selected="selected" disabled>Export</option>
                                         <option value="/pembayaran/export">Excel</option>
-                                        <option value="/pembayaran/pdf">PDF</option>
+                                        <option value="{{ route('pembayaran.pdfallTU', $id) }}">PDF</option>
                                     </select>
                                     <div class="dropDownSelect2"></div>
                              
@@ -120,17 +76,16 @@
                         </div>
                         <div class="table-responsive table-responsive-data2">
                             <table class="table table-data3">
-                            @if(!empty($pembayaran)>0)
+                            @if(count($pembayaran)>0)
                                 <thead style="background-color: #5c8f96">
                                     <tr>
                                         <th>No</th>
                                         <th>Bulan</th>
                                         <th>Jatuh Tempo</th>   
-                                        <th>Tgl Bayar</th>    
-                                        <th>No. Bayar</th>
+                                        <th>Tgl Bayar</th>  
                                         <th>Jumlah</th>
                                         <th>Ket</th>                 
-                                        <th>Action</th>
+                                        <th class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -141,17 +96,22 @@
                                         <td>{{$p->bulan}}</td>
                                         <td>{{$p->jatuh_tempo}}</td>
                                         <td>{{$p->tgl_bayar}}</td>
-                                        <td>{{$p->nomor}}</td>
                                         <td>{{$p->jumlah}}</td>
                                         <td>{{$p->keterangan}}</td>
                                         <td>
                                             <div class="table-data-feature">
-                                                <a href="{{ route('pembayaran.edit.guru', $p->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                <a href="{{ route('pembayaran.bayarTU', $p->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Bayar">
+                                                    <i class="zmdi zmdi-check-circle"></i>
+                                                </a>
+                                                <a href="{{ route('pembayaran.pdfTU', $p->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Print">
+                                                    <i class="zmdi zmdi-print"></i>
+                                                </a>
+                                                <a href="{{ route('pembayaran.editTU', $p->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                     <i class="zmdi zmdi-edit"></i>
                                                 </a>
                                                 {{ csrf_field() }}
                                                 {{ method_field('DELETE') }}
-                                                <a href="{{ route('pembayaran.destroy.guru', $p->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <a href="{{ route('pembayaran.destroyTU', $p->id) }}" class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                     <i class="zmdi zmdi-delete"></i>
                                                 </a>
                                             </div>
@@ -162,6 +122,7 @@
                                 </tbody>
                             @endif
                             </table>
+                            {{ $pembayaran->links() }}
                         </div>
                         <!-- END DATA TABLE -->
                     </div>

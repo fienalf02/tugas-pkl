@@ -61,9 +61,14 @@
 
                             <li>
                                 <a class="example_e" href="{{ route('siswa.spp') }}" target="self" rel="nofollow noopener">
-                                <i class="fas fa-calendar-alt fa-lg"></i>Pembayaran pembayaran</a>
+                                <i class="fas fa-credit-card fa-lg"></i>Pembayaran SPP</a>
                             </li>
-    
+
+                            <li>
+                                <a class="example_a" href="{{ route('laporan.show') }}" target="self" rel="nofollow noopener">
+                                <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
+                            </li>  
+                            </li><hr>
                                     
                     </ul>
                         </li>
@@ -81,7 +86,7 @@
                                 <img src="{{ asset('assets/images/icon/Ld.png') }}" alt="Admin" />
                             
 
-                        <!-- <i class="fas fa-user-circle fa-3x " style="color:darkcyan">ADMIN</i> -->
+                        <!-- <i class="fas fa-chalkboard-teacher fa-3x " style="color:darkcyan">ADMIN</i> -->
                     <!-- <img src="images/icon/.jpg " style="size: 40" alt="LOGO" /> -->
                 </a>
             </div>
@@ -103,7 +108,7 @@
                                 </li>
                                 <li>
                                     <a class="example_a" href="{{ route('guru.index') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-user-circle fa-lg ml-3"></i>Guru </a>
+                                    <i class="fas fa-chalkboard-teacher fa-lg ml-3"></i>Guru </a>
                                 </li>
                                
                                 <li>
@@ -128,12 +133,19 @@
                                     <a class="example_a" href="{{ route('jadwal.index') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-calendar-alt fa-lg ml-3"></i>Jadwal</a>
                                 </li>  
-
+                                
                                 <li>
                                     <a class="example_a" href="{{ route('siswa.spp') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-calendar-alt fa-lg ml-3"></i>Pembayaran SPP</a>
+                                    <i class="fas fa-credit-card fa-lg ml-3"></i>Pembayaran SPP</a>
                                 </li>  
-                                </li><hr>
+                                </li>
+
+                                <li>
+                                    <a class="example_a" href="{{ route('laporan.show') }}" target="self" rel="nofollow noopener">
+                                    <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
+                                </li>  
+                                </li>
+                                <hr>
                             </ul> 
                         </li>
                     </ul>

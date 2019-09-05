@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Exports\JadwalExport;
 use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Jadwal;
 use App\Guru;
 use App\Mapel;
@@ -22,7 +23,7 @@ class JadwalController extends Controller
         $jadwal = Jadwal::select('jadwals.*', 'gurus.nama_guru', 'mapels.mapel')
                 ->join('gurus', 'gurus.id', '=', 'jadwals.id_guru')
                 ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
-                ->get();
+                ->paginate(10);
         return view('admin/jadwal/tabeljadwal', compact('jadwal'));
     }
 
@@ -36,7 +37,7 @@ class JadwalController extends Controller
         $jadwal = Jadwal::select('jadwals.*', 'gurus.nama_guru', 'mapels.mapel')
                 ->join('gurus', 'gurus.id', '=', 'jadwals.id_guru')
                 ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
-                ->get();
+                ->paginate(5);
         return view('guru/jadwal/tabeljadwal', compact('jadwal'));
     }
 
@@ -47,8 +48,8 @@ class JadwalController extends Controller
      */
     public function create()
     {
-        $guru = Guru::all();
-        $mapel = Mapel::all();
+        $guru = Guru::paginate(5);
+        $mapel = Mapel::paginate(5);
         return view('admin/jadwal/formjadwal', compact('guru', 'mapel'));
     }
 
@@ -68,7 +69,7 @@ class JadwalController extends Controller
         $jadwal->id_guru = $request->id_guru;
         $jadwal->id_mapel = $request->id_mapel;
         $jadwal->save();
-        return redirect()->route('jadwal.index')->with('alert-success','Berhasil Menambahkan Data');
+        return redirect()->route('jadwal.index')->withSuccessMessage('Berhasil Menambahkan Data');
     }
 
     /**
@@ -79,9 +80,9 @@ class JadwalController extends Controller
      */
     public function edit($id)
     {
-        $jadwal = jadwal::where('id', $id)->get();
-        $guru = Guru::all();
-        $mapel = Mapel::all();
+        $jadwal = jadwal::where('id', $id)->paginate(5);
+        $guru = Guru::paginate(5);
+        $mapel = Mapel::paginate(5);
         return view('admin/jadwal/editjadwal', compact('jadwal', 'guru', 'mapel')); 
     }
 
@@ -102,7 +103,7 @@ class JadwalController extends Controller
         $jadwal->id_guru = $request->id_guru;
         $jadwal->id_mapel = $request->id_mapel;
         $jadwal->save();
-        return redirect()->route('jadwal.index')->with('alert-success','jadwal berhasil diubah');
+        return redirect()->route('jadwal.index')->withSuccessMessage('Berhasil Mengubah Data');
     }
 
     /**
@@ -115,7 +116,7 @@ class JadwalController extends Controller
     {
         $jadwal = jadwal::where('id', $id)->first();
         $jadwal->delete();
-        return redirect()->route('jadwal.index')->with('alert-success','Data berhasil dihapus');
+        return redirect()->route('jadwal.index')->withSuccessMessage('Berhasil Menghapus Data');
     }
 
     public function search(Request $request)
@@ -126,11 +127,28 @@ class JadwalController extends Controller
         ->join('gurus', 'gurus.id', '=', 'jadwals.id_guru')
         ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
         ->where('gurus.nama_guru', 'LIKE', '%'.$search.'%')
-        ->orWhere('mapels.mapel', $search)
-        ->orWhere('jadwals.ruangan', $search)
-        ->orWhere('jadwals.tahun_ajaran', $search)
-        ->orWhere('jadwals.hari', $search)
-        ->get();
+        ->orWhere('mapels.mapel', 'LIKE', '%'.$search.'%')
+        ->orWhere('jadwals.ruangan', 'LIKE', '%'.$search.'%')
+        ->orWhere('jadwals.tahun_ajaran', 'LIKE', '%'.$search.'%')
+        ->orWhere('jadwals.hari', 'LIKE', '%'.$search.'%')
+        ->paginate(5);
+ 
+    	return view('admin/jadwal/tabeljadwal', compact('jadwal', 'search'));
+ 
+    }
+    public function searchguru(Request $request)
+	{
+        $search = $request->get('search');
+        
+        $jadwal = Jadwal::select('jadwals.*', 'gurus.nama_guru', 'mapels.mapel')
+        ->join('gurus', 'gurus.id', '=', 'jadwals.id_guru')
+        ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
+        ->where('gurus.nama_guru', 'LIKE', '%'.$search.'%')
+        ->orWhere('mapels.mapel', 'LIKE', '%'.$search.'%')
+        ->orWhere('jadwals.ruangan', 'LIKE', '%'.$search.'%')
+        ->orWhere('jadwals.tahun_ajaran', 'LIKE', '%'.$search.'%')
+        ->orWhere('jadwals.hari', 'LIKE', '%'.$search.'%')
+        ->paginate(5);
  
     	return view('admin/jadwal/tabeljadwal', compact('jadwal', 'search'));
  
@@ -144,6 +162,17 @@ class JadwalController extends Controller
                 ->get();
 
         $pdf = PDF::loadView('admin/jadwal/pdfjadwal', compact('jadwal'));
+        return $pdf->stream('pdfjadwal.pdf');
+    }
+
+    public function pdfguru()
+    {
+        $jadwal = Jadwal::select('jadwals.*', 'gurus.nama_guru', 'mapels.mapel')
+                ->join('gurus', 'gurus.id', '=', 'jadwals.id_guru')
+                ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
+                ->get();
+
+        $pdf = PDF::loadView('guru/jadwal/pdfjadwal', compact('jadwal'));
         return $pdf->stream('pdfjadwal.pdf');
     }
 

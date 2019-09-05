@@ -12,7 +12,7 @@ class PembayaranExport implements FromCollection
     */
     public function collection()
     {
-        return Pembayaran::select('siswas.nama', 'pembayarans.bulan', 'pembayarans.jatuh_tempo', 'pembayarans.tgl_bayar', 'pembayarans.nomor', 'pembayarans.jumlah', 'pembayarans.keterangan')
+        return Pembayaran::select('siswas.nama', 'pembayarans.bulan', 'pembayarans.jatuh_tempo', 'pembayarans.tgl_bayar', 'pembayarans.jumlah', 'pembayarans.keterangan')
         ->join('siswas', 'siswas.id', '=', 'pembayarans.id_siswa')
         ->get();
     }

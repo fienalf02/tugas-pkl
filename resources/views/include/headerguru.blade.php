@@ -61,10 +61,14 @@
 
                             <li>
                                 <a class="example_e" href="{{ route('siswa.spp.guru') }}" target="self" rel="nofollow noopener">
-                                <i class="fas fa-calendar-alt fa-lg"></i>Pembayaran pembayaran</a>
+                                <i class="fas fa-credit-card fa-lg"></i>Pembayaran SPP</a>
                             </li>
-    
-                                    
+
+                            <li>
+                                    <a class="example_a" href="{{ route('laporan.showguru') }}" target="self" rel="nofollow noopener">
+                                    <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
+                                </li>  
+                                </li><hr>
                     </ul>
                         </li>
                     </ul>
@@ -131,7 +135,13 @@
 
                                 <li>
                                     <a class="example_a" href="{{ route('siswa.spp.guru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-calendar-alt fa-lg ml-3"></i>Pembayaran SPP</a>
+                                    <i class="fas fa-credit-card fa-lg ml-3"></i>Pembayaran SPP</a>
+                                </li>  
+                                </li>
+
+                                <li>
+                                    <a class="example_a" href="{{ route('laporan.showguru') }}" target="self" rel="nofollow noopener">
+                                    <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
                                 </li>  
                                 </li><hr>
                             </ul> 

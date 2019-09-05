@@ -18,6 +18,8 @@ class CreateSiswasTable extends Migration
             $table->integer('NIS')->unique();
             $table->string('nama');
             $table->string('JK');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

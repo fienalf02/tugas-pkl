@@ -26,6 +26,12 @@
                                 <a class="example_e" href="{{ route('siswa.sppTU') }}" target="self" rel="nofollow noopener">
                                 <i class="fas fa-credit-card fa-lg"></i>Pembayaran SPP</a>
                             </li>
+
+                            <li>
+                                <a class="example_a" href="{{ route('laporan.showtu') }}" target="self" rel="nofollow noopener">
+                                <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
+                            </li>  
+                            </li><hr>
     
                                     
                     </ul>
@@ -55,10 +61,16 @@
                                 <li > <hr>
                                     <a class="example_a" href="{{ route('home') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-tachometer-alt  fa-lg ml-3"></i>Dashboard</a>
+                                </li>
 
                                 <li>
                                     <a class="example_a" href="{{ route('siswa.sppTU') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-credit-card fa-lg ml-3"></i>Pembayaran SPP</a>
+                                </li>  
+
+                                <li>
+                                    <a class="example_a" href="{{ route('laporan.showtu') }}" target="self" rel="nofollow noopener">
+                                    <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
                                 </li>  
                                 </li><hr>
                             </ul> 

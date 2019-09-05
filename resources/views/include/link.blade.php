@@ -22,4 +22,6 @@
     <!-- Main CSS-->
     <link href="{{ asset('assets/css/theme.css') }}" rel="stylesheet" media="all">
     <link href="{{ asset('jquery-ui/jquery-ui.min.css') }}" rel="stylesheet" media="all">
+    <link rel="stylesheet" href="{{ asset('node_modules/sweetalert2/dist/sweetalert2.min.css') }}">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.5.0/css/bootstrap-datepicker.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.6.9/sweetalert2.min.css">

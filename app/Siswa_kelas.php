@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Siswa_kelas;
 use App\Siswa;
 use App\Kelas;
 use App\Guru;
@@ -34,11 +33,11 @@ class Siswa_kelas extends Model
 
     public function nilai()
     {
-        return $this->hasMany('App\Kelas');
+        return $this->hasOne('App\Nilai');
     }
 
     public function pembayaran()
     {
-        return $this->hasMany('App\Kelas');
+        return $this->hasMany('App\Pembayaran');
     }
 }

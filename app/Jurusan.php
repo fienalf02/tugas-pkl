@@ -3,11 +3,10 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\Kelas;
 
 class Jurusan extends Model
 {
-    protected $table = "jurusans";
     protected $fillable = [
         'jurusan'
     ];

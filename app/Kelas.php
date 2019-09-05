@@ -16,7 +16,7 @@ class Kelas extends Model
 
     public function jurusan()
     {
-        return $this->belongsTo('App\Jurusan', 'id');
+        return $this->belongsTo('App\Jurusan');
     }
 
     public function siswa_kelas()

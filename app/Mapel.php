@@ -7,7 +7,6 @@ use App\Jadwal;
 
 class Mapel extends Model
 {
-    protected $table = "mapels";
     protected $fillable = [
         'mapel', 'KKM'
     ];
