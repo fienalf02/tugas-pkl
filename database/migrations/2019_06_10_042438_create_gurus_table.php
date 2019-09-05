@@ -15,10 +15,11 @@ class CreateGurusTable extends Migration
     {
         Schema::create('gurus', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('NIP')->unique();
-            $table->string('nama');
+            $table->string('NIP')->unique();
+            $table->string('nama_guru');
             $table->string('JK');
-            $table->string('password');
+            $table->integer('id_user')->unsigned();
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

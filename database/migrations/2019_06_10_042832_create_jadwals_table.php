@@ -15,6 +15,10 @@ class CreateJadwalsTable extends Migration
     {
         Schema::create('jadwals', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('hari');
+            $table->char('jam');
+            $table->string('ruangan');
+            $table->char('tahun_ajaran');
             $table->integer('id_guru')->unsigned();
             $table->foreign('id_guru')->references('id')->on('gurus')->onDelete('cascade');
             $table->integer('id_mapel')->unsigned();

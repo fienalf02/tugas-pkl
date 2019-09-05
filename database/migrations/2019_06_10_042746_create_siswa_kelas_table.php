@@ -19,6 +19,8 @@ class CreateSiswaKelasTable extends Migration
             $table->foreign('id_siswa')->references('id')->on('siswas')->onDelete('cascade');
             $table->integer('id_kelas')->unsigned();
             $table->foreign('id_kelas')->references('id')->on('kelas')->onDelete('cascade');
+            $table->integer('id_guru')->unsigned();
+            $table->foreign('id_guru')->references('id')->on('gurus')->onDelete('cascade');
             $table->timestamps();
         });
     }

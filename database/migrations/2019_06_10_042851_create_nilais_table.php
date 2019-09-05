@@ -15,10 +15,11 @@ class CreateNilaisTable extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_siswakelas')->unsigned();
+            $table->foreign('id_siswakelas')->references('id')->on('siswa_kelas')->onDelete('cascade');
             $table->integer('id_jadwal')->unsigned();
             $table->foreign('id_jadwal')->references('id')->on('jadwals')->onDelete('cascade');
             $table->integer('semester');
-            $table->string('tahun_ajaran');
             $table->integer('rapot');
             $table->timestamps();
         });
