@@ -21,24 +21,6 @@
                              <li >
                                 <a  class="example_e" href="{{ route('home') }}" target="self" rel="nofollow noopener">
                                 <i class="fas fa-tachometer-alt  fa-lg"></i>Dashboard</a>
-                                
-                            <li>
-                                <a class="example_e" href="{{ route('jurusan.indexguru') }}" target="self" rel="nofollow noopener">
-                                <i class="fa fa-archive fa-lg"></i>Jurusan</a>
-                            </li>
-                            <li>
-                                <a class="example_e" href="{{ route('kelas.indexguru') }}" target="self" rel="nofollow noopener">
-                                <i class="fas fa-table fa-lg"></i>Kelas</a>
-                            </li>
-                            <li>
-                                <a class="example_e" href="{{ route('guru.indexguru') }}" target="self" rel="nofollow noopener">
-                                <i class="fas fa-chalkboard-teacher fa-lg "></i>Guru </a>
-                            </li>
-
-                            <li>
-                                <a class="example_e" href="{{ route('siswa.indexguru') }}" target="self" rel="nofollow noopener">
-                                <i class="fas fa-user fa-lg"></i>Siswa </a>
-                            </li>
 
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                         
@@ -58,16 +40,6 @@
                                 <a class="example_e" href="{{ route('jadwal.indexguru') }}" target="self" rel="nofollow noopener">
                                 <i class="fas fa-calendar-alt fa-lg"></i>Jadwal</a>
                             </li>
-
-                            <li>
-                                <a class="example_e" href="{{ route('siswa.spp.guru') }}" target="self" rel="nofollow noopener">
-                                <i class="fas fa-credit-card fa-lg"></i>Pembayaran SPP</a>
-                            </li>
-
-                            <li>
-                                    <a class="example_a" href="{{ route('laporan.showguru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
-                                </li>  
                                 </li><hr>
                     </ul>
                         </li>
@@ -97,24 +69,6 @@
                                     <a class="example_a" href="{{ route('home') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-tachometer-alt  fa-lg ml-3"></i>Dashboard</a>
                             
-                                <li><tr>
-                                    <a class="example_a" href="{{ route('jurusan.indexguru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fa fa-archive fa-lg ml-3"></i>Jurusan</a>
-                                </li>
-                                <li>
-                                    <a class="example_a" href="{{ route('kelas.indexguru') }}" target="self" rel="nofollow noopener" href="kelas.php">
-                                    <i class="fas fa-table fa-lg ml-3"></i>Kelas</a>
-                                </li>
-                                <li>
-                                    <a class="example_a" href="{{ route('guru.indexguru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-user-circle fa-lg ml-3"></i>Guru </a>
-                                </li>
-                               
-                                <li>
-                                    <a class="example_a" href="{{ route('siswa.indexguru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-user fa-lg ml-3"></i>Siswa </a>
-                                 </li>
-        
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                
                                 </ul></li>
@@ -131,17 +85,6 @@
                                 <li>
                                     <a class="example_a" href="{{ route('jadwal.indexguru') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-calendar-alt fa-lg ml-3"></i>Jadwal</a>
-                                </li>  
-
-                                <li>
-                                    <a class="example_a" href="{{ route('siswa.spp.guru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-credit-card fa-lg ml-3"></i>Pembayaran SPP</a>
-                                </li>  
-                                </li>
-
-                                <li>
-                                    <a class="example_a" href="{{ route('laporan.showguru') }}" target="self" rel="nofollow noopener">
-                                    <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
                                 </li>  
                                 </li><hr>
                             </ul> 

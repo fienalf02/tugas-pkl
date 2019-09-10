@@ -95,13 +95,6 @@ class JurusanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $jurusan = $request->jurusan;
-
-        // $jurusan = Jurusan::find($id);
-        // $jurusan->jurusan = $jurusan;
-
-        // return "jurusan berhasil diupdate";
-
         $jurusan = Jurusan::where('id',$id)->first();
         $jurusan->jurusan = $request->jurusan;
         $jurusan->save();

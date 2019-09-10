@@ -77,7 +77,7 @@
                                         <th>No</th>
                                         <th>NIS</th>
                                         <th>Nama</th>
-                                        <th>Jenis Kelamin</th>
+                                        <th>JK</th>
                                         <th>Kelas</th>       
                                         <th>Wali Kelas</th>                
                                         <th>Action</th>

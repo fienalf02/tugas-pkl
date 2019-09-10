@@ -86,7 +86,7 @@
                                         <th>No</th>
                                         <th>NIS</th>
                                         <th>Nama Siswa</th>
-                                        <th>Jenis Kelamin</th>
+                                        <th>JK</th>
                                         <th>Kelas</th>  
                                         <th>Wali Kelas</th>
                                     </tr>
