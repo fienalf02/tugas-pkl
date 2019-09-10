@@ -43,7 +43,6 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                         
                             </ul>
-                            </li>
                             <li>
                                 <a class="example_e" href="{{ route('siswa.nilai') }}" target="self" rel="nofollow noopener">
                                 <i class="fas fa-file fa-lg"></i>Nilai </a>
@@ -67,8 +66,13 @@
                             <li>
                                 <a class="example_a" href="{{ route('laporan.show') }}" target="self" rel="nofollow noopener">
                                 <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
-                            </li>  
-                            </li><hr>
+                            </li>
+
+                            <li>
+                                    <a class="example_a" href="{{ route('register') }}" target="self" rel="nofollow noopener">
+                                    <i class="fas fa-registered fa-lg ml-3"></i>Register</a>
+                                </li>
+                            <hr>
                                     
                     </ul>
                         </li>
@@ -94,18 +98,21 @@
                 <nav class="navbar-sidebar bg-whte md-0  pr-1 pt-0 mt-4 ml-0">
                     <ul class="list-unstyled navbar__list">
                            
-                                <li > <hr>
+                                <li> <hr>
                                     <a class="example_a" href="{{ route('home') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-tachometer-alt  fa-lg ml-3"></i>Dashboard</a>
+                                </li>
                             
                                 <li><tr>
                                     <a class="example_a" href="{{ route('jurusan.index') }}" target="self" rel="nofollow noopener">
                                     <i class="fa fa-archive fa-lg ml-3"></i>Jurusan</a>
                                 </li>
+
                                 <li>
                                     <a class="example_a" href="{{ route('kelas.index') }}" target="self" rel="nofollow noopener" href="kelas.php">
                                     <i class="fas fa-table fa-lg ml-3"></i>Kelas</a>
                                 </li>
+
                                 <li>
                                     <a class="example_a" href="{{ route('guru.index') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-chalkboard-teacher fa-lg ml-3"></i>Guru </a>
@@ -137,14 +144,18 @@
                                 <li>
                                     <a class="example_a" href="{{ route('siswa.spp') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-credit-card fa-lg ml-3"></i>Pembayaran SPP</a>
-                                </li>  
                                 </li>
 
                                 <li>
                                     <a class="example_a" href="{{ route('laporan.show') }}" target="self" rel="nofollow noopener">
                                     <i class="fas fa-file-alt fa-lg ml-3"></i>Laporan SPP</a>
-                                </li>  
                                 </li>
+
+                                <li>
+                                    <a class="example_a" href="{{ route('register') }}" target="self" rel="nofollow noopener">
+                                    <i class="fas fa-registered fa-lg ml-3"></i>Register</a>
+                                </li>
+
                                 <hr>
                             </ul> 
                         </li>

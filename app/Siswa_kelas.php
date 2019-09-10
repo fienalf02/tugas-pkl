@@ -33,7 +33,7 @@ class Siswa_kelas extends Model
 
     public function nilai()
     {
-        return $this->hasOne('App\Nilai');
+        return $this->hasMany('App\Nilai');
     }
 
     public function pembayaran()

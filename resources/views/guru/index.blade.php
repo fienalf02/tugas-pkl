@@ -52,41 +52,47 @@
                 <!-- END WELCOME -->
                     <!-- STATISTIC-->
                     <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
+                        <div class="col-sm-6 col-lg-3">
+                            <a href="{{ route('nilai.indexguru') }}" style="width : 100% !important;">
                                 <div class="overview-item overview-item--c1">
+                                
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
                                                 <i class="fas fa-chalkboard-teacher"></i>
                                             </div>
                                             <div class="text">
-                                            <h2>{{ $countGuru->count() }}</h2>
-                                                <span> Guru</span>
+                                            <h2>{{ $countNilai->count() }}</h2>
+                                                <span> Nilai </span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
                                         </div>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                             <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c2">
+                                <a href="{{ route('mapel.indexguru') }}" style="width : 100% !important;">
+                                <div class="overview-item overview-item--c4">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
                                                 <i class="fas fa-user"></i>
                                             </div>
                                             <div class="text">
-                                            <h2>{{ $countSiswa->count() }}</h2>
-                                                <span> Siswa</span>
+                                            <h2>{{ $countMapel->count() }}</h2>
+                                                <span> Mapel </span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
                                         </div>
                                     </div>
                                 </div>
+                                </a>
                             </div>
                             <div class="col-sm-6 col-lg-3">
+                            <a href="{{ route('jadwal.indexguru') }}" style="width : 100% !important;">
                                 <div class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
@@ -94,33 +100,16 @@
                                                 <i class="fas fa-table"></i>
                                             </div>
                                             <div class="text">
-                                            <h2>{{ $countKelas->count() }}</h2>
-                                                <span> Kelas</span>
+                                            <h2>{{ $countJadwal->count() }}</h2>
+                                                <span> Jadwal </span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
                                         </div>
                                     </div>
                                 </div>
+                                </a>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="fas fa-archive"></i>
-                                            </div>
-                                            <div class="text">
-                                            <h2>{{ $countJurusan->count() }}</h2>
-                                                <span> Jurusan</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                                     <!-- END STATISTIC-->
                             </div>
                         </div>
