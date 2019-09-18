@@ -128,8 +128,6 @@ class JadwalController extends Controller
         ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
         ->where('gurus.nama_guru', 'LIKE', '%'.$search.'%')
         ->orWhere('mapels.mapel', 'LIKE', '%'.$search.'%')
-        ->orWhere('jadwals.ruangan', 'LIKE', '%'.$search.'%')
-        ->orWhere('jadwals.tahun_ajaran', 'LIKE', '%'.$search.'%')
         ->orWhere('jadwals.hari', 'LIKE', '%'.$search.'%')
         ->paginate(5);
  
@@ -145,12 +143,10 @@ class JadwalController extends Controller
         ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
         ->where('gurus.nama_guru', 'LIKE', '%'.$search.'%')
         ->orWhere('mapels.mapel', 'LIKE', '%'.$search.'%')
-        ->orWhere('jadwals.ruangan', 'LIKE', '%'.$search.'%')
-        ->orWhere('jadwals.tahun_ajaran', 'LIKE', '%'.$search.'%')
         ->orWhere('jadwals.hari', 'LIKE', '%'.$search.'%')
         ->paginate(5);
  
-    	return view('admin/jadwal/tabeljadwal', compact('jadwal', 'search'));
+    	return view('guru/jadwal/tabeljadwal', compact('jadwal', 'search'));
  
     }
 

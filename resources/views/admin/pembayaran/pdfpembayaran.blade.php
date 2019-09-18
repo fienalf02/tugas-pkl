@@ -34,7 +34,7 @@
     <tr>
     <td><img src="{{ ('assets/images/icon/logooo.png') }}" alt="logo" width="80", height="80"></td>
     <td><center>
-        <font size="5">LAPORAN DATA PEMBAYARAN</font><br>
+        <font size="5">KWITANSI PEMBAYARAN</font><br>
         <font size="6"><b>SMK NEGERI 1 SUNGAILIAT</b></font><br>
         <font size="3"><i>Jalan Singayudha 1, Sungailiat-Prov. Bangka Belitung telp. (0717) 92269</i></font>
     </td>

@@ -80,7 +80,7 @@
                                             <label for="Rapot" class=" form-control-label">Jumlah</label>
                                         </div>
                                         <div class="col-12 col-md-8">
-                                            <input type="number" id="company" placeholder="Masukkan Jumlah" class="form-control" name="jumlah">
+                                            <input type="number" min="0" id="company" placeholder="Masukkan Jumlah" class="form-control" name="jumlah">
                                         </div>
                                     </div>
                                     

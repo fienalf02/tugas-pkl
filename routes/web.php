@@ -20,6 +20,13 @@ Auth::routes();
 Route::get('/register', 'HomeController@register')->name('register');
 Route::post('/register', 'HomeController@store')->name('register.create');
 
+    //change profile
+Route::get('/user/edit', 'UserController@edit')->name('user.edit');
+Route::get('/user/editguru', 'UserController@editguru')->name('user.editguru');
+Route::get('/user/edittu', 'UserController@edittu')->name('user.edittu');
+Route::get('/user/editsiswa', 'UserController@editsiswa')->name('user.editsiswa');
+Route::post('/user/update', 'UserController@update')->name('user.update');
+
         //admin
 Route::get('/home', 'HomeController@index')->name('home');
 

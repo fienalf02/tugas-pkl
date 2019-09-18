@@ -28,7 +28,7 @@
                             <div class="judul">Data pembayaran</div>
                             <div class="btnn">
                         @include('include.sosmed')
-                        @include('include.forlogin')
+                        @include('include.forlogintu')
                     </div>
                 </div>
             </div>

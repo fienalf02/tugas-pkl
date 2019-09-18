@@ -27,7 +27,7 @@
                             <div class="judul">Data Pembayaran</div>
                             <div class="btnn">
                         @include('include.sosmed')
-                        @include('include.forlogin')
+                        @include('include.forlogintu')
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                                             <label for="Rapot" class=" form-control-label">Jumlah</label>
                                         </div>
                                         <div class="col-12 col-md-8">
-                                            <input type="number" id="company" placeholder="Masukkan Jumlah" class="form-control" name="jumlah">
+                                            <input type="number" min="0" id="company" placeholder="Masukkan Jumlah" class="form-control" name="jumlah">
                                         </div>
                                     </div>
                                     <button type="submit" class="btn btn-primary btn-sm ml-100 " style="background-color: rgb(41, 73, 128) ">

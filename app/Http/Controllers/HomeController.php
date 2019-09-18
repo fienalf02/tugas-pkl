@@ -56,14 +56,18 @@ class HomeController extends Controller
      */
     protected function store(Request $request)
     {
-        $user = new User();
         $user = $request->validate([
             'name' => 'required|string|max:255',
             'username' => 'required|string|unique:users',
             'role' => 'required|string|max:15',
             'password' => 'required|string|min:4|confirmed',
         ]);
-        User::create($user);
+        $user = new User();
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->password = bcrypt($request->password);
+        $user->role = $request->role;
+        $user->save();
         return redirect()->route('home')->withSuccessMessage('Berhasil Menambahkan Data');
     }
 

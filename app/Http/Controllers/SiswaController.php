@@ -35,7 +35,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('admin/siswa/tabelsiswa', compact('siswa', 'kelas', 'guru','search'));
     }
 
@@ -54,7 +54,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('guru/siswa/tabelsiswa', compact('siswa', 'kelas', 'guru','search'));
     }
 
@@ -78,7 +78,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('admin/siswa/tabelnilaisiswa', compact('siswa', 'kelas', 'guru', 'search'));
     }
 
@@ -97,7 +97,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('guru/siswa/tabelnilaisiswa', compact('siswa', 'kelas', 'guru', 'search'));
     }
 
@@ -116,7 +116,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('admin/siswa/tabelsppsiswa', compact('siswa', 'kelas', 'guru', 'search'));
     }
 
@@ -135,7 +135,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('guru/siswa/tabelsppsiswa', compact('siswa', 'kelas', 'guru', 'search'));
     }
 
@@ -154,7 +154,7 @@ class SiswaController extends Controller
                 ->when($search, function ($siswa, $search) {
                         return $siswa->where('siswa_kelas.id_kelas',$search);
                     })
-                ->orderBy('nama')->paginate(5);
+                ->orderBy('jurusan')->paginate(5);
         return view('TU/siswa/tabelsppsiswa', compact('siswa', 'kelas', 'guru', 'search'));
     }
 
@@ -427,7 +427,7 @@ class SiswaController extends Controller
                 ->when($id, function ($siswa, $id) {
                         return $siswa->where('siswa_kelas.id_kelas',$id);
                     })
-                ->orderBy('nama')->get();
+                ->orderBy('jurusan')->get();
 
         $pdf = PDF::loadView('admin/siswa/pdfsiswa', compact('siswa', 'kelas', 'guru', 'id'));
         return $pdf->stream('pdfsiswa.pdf');
@@ -448,7 +448,7 @@ class SiswaController extends Controller
                 ->when($id, function ($siswa, $id) {
                         return $siswa->where('siswa_kelas.id_kelas',$id);
                     })
-                ->orderBy('nama')->get();
+                ->orderBy('jurusan')->get();
 
         $pdf = PDF::loadView('guru/siswa/pdfsiswa', compact('siswa', 'kelas', 'guru', 'id'));
         return $pdf->stream('pdfsiswa.pdf');

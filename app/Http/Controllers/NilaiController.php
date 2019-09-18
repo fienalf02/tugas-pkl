@@ -368,6 +368,36 @@ class NilaiController extends Controller
 
     }
 
+    public function searchmurid(Request $request)
+    {
+
+        $search = $request->get('search');
+        $detail_siswa = Siswa::select('siswas.NIS', 'siswas.nama','kelas.kelas', 'jurusans.jurusan', 'kelas.urutan', 'gurus.nama_guru')
+                        ->where('users.id', Auth::user()->id)
+                        ->join('siswa_kelas', 'siswa_kelas.id_siswa', '=', 'siswas.id')
+                        ->join('gurus', 'gurus.id', '=', 'siswa_kelas.id_guru')
+                        ->join('kelas', 'kelas.id', '=', 'siswa_kelas.id_kelas')
+                        ->join('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')
+                        ->join('users', 'users.id', '=', 'siswas.id_user')
+                        ->first();
+        $user = User::where('id', Auth::user()->id)->first();
+        $nilai = Nilai::select('nilais.*', 'siswas.NIS', 'gurus.nama_guru', 'siswas.nama', 'kelas.kelas', 'jurusans.jurusan', 'kelas.urutan', 'mapels.mapel', 'detail_nilais.uts', 'detail_nilais.uas', 'detail_nilais.tugas')
+                ->where('users.id', Auth::user()->id)
+                ->join('detail_nilais', 'nilais.id', '=', 'detail_nilais.id_nilai')
+                ->join('jadwals', 'jadwals.id', '=', 'nilais.id_jadwal')
+                ->join('mapels', 'mapels.id', '=', 'jadwals.id_mapel')
+                ->join('siswa_kelas', 'siswa_kelas.id', '=', 'nilais.id_siswakelas')
+                ->join('siswas', 'siswas.id', '=', 'siswa_kelas.id_siswa')
+                ->join('gurus', 'gurus.id', '=', 'siswa_kelas.id_guru')
+                ->join('kelas', 'kelas.id', '=', 'siswa_kelas.id_kelas')
+                ->join('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')
+                ->join('users', 'users.id', '=', 'siswas.id_user')
+                ->where('mapels.mapel', 'like', "%".$search."%")
+                ->paginate(5);
+        return view('siswa/nilai/tabelnilai', compact('nilai', 'id', 'user', 'detail_siswa', 'search'));
+    }
+
+    
     public function pdf($id)
     {
         $detail_siswa = Siswa::select('siswas.NIS', 'siswas.id as id_siswa', 'siswas.nama','kelas.kelas', 'jurusans.jurusan', 'kelas.urutan', 'gurus.nama_guru')

@@ -28,7 +28,7 @@
                             <div class="judul">Data Siswa</div>
                             <div class="btnn">
                         @include('include.sosmed')
-                        @include('include.forlogin')
+                        @include('include.forlogintu')
                     </div>
                 </div>
             </div>
