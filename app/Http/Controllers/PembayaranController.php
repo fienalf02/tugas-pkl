@@ -250,26 +250,6 @@ class PembayaranController extends Controller
         return view('admin/pembayaran/tabelpembayaran', compact('pembayaran', 'search', 'detail_siswa', 'id'));
     }
 
-    public function searchguru(Request $request, $id)
-	{
-        $search = $request->get('search');
-        
-        $detail_siswa = Siswa::select('siswas.NIS', 'siswas.nama','kelas.kelas', 'jurusans.jurusan', 'kelas.urutan', 'gurus.nama_guru')
-                        ->where('siswas.id', $id)
-                        ->join('siswa_kelas', 'siswa_kelas.id_siswa', '=', 'siswas.id')
-                        ->join('gurus', 'gurus.id', '=', 'siswa_kelas.id_guru')
-                        ->join('kelas', 'kelas.id', '=', 'siswa_kelas.id_kelas')
-                        ->join('jurusans', 'jurusans.id', '=', 'kelas.id_jurusan')
-                        ->first();
-        $pembayaran = Pembayaran::select('pembayarans.*')
-                        ->where('siswas.id', $id)
-                        ->join('siswa_kelas', 'siswa_kelas.id', '=', 'pembayarans.id_siswakelas')
-                        ->where('bulan', 'like', "%".$search."%")
-                        ->orWhere('keterangan', 'like', "%".$search."%")
-                        ->paginate(5);
-        return view('guru/pembayaran/tabelpembayaran', compact('pembayaran', 'search', 'detail_siswa', 'id'));
-    }
-
     public function searchTU(Request $request, $id)
 	{
         $search = $request->get('search');
@@ -284,6 +264,7 @@ class PembayaranController extends Controller
         $pembayaran = Pembayaran::select('pembayarans.*')
                         ->where('siswas.id', $id)
                         ->join('siswa_kelas', 'siswa_kelas.id', '=', 'pembayarans.id_siswakelas')
+                        ->join('siswas', 'siswas.id', '=', 'siswa_kelas.id_siswa')
                         ->where('bulan', 'like', "%".$search."%")
                         ->orWhere('keterangan', 'like', "%".$search."%")
                         ->paginate(5);
@@ -383,7 +364,7 @@ class PembayaranController extends Controller
                         ->join('siswas', 'siswas.id', '=', 'siswa_kelas.id_siswa')
                         ->get();
 
-        $pdf = PDF::loadView('TU/pembayaran/pdfpembayaran', compact('detail_siswa', 'pembayaran', 'id'));
+        $pdf = PDF::loadView('TU/pembayaran/pdfpembayaranall', compact('detail_siswa', 'pembayaran', 'id'));
         return $pdf->stream('pdfpembayaran.pdf');
     }
 

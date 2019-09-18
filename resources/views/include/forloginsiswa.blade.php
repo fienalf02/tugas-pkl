@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="account-dropdown__item">
-                    <a href="{{ route('user.edit')}}">
+                    <a href="{{ route('user.editsiswa')}}">
                         <i class="zmdi zmdi-settings"></i>Setting</a>
                 </div>
             <div class="account-dropdown__footer">

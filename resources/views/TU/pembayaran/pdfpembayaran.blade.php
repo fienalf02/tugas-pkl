@@ -24,8 +24,8 @@
         background-color: black;
         color: white;
     }
-    h3 {
-        text-align: center;
+    p {
+        text-align: right;
     }
     
 </style>
@@ -34,7 +34,7 @@
     <tr>
     <td><img src="{{ ('assets/images/icon/logooo.png') }}" alt="logo" width="80", height="80"></td>
     <td><center>
-        <font size="5">LAPORAN DATA PEMBAYARAN</font><br>
+        <font size="5">KWITANSI PEMBAYARAN</font><br>
         <font size="6"><b>SMK NEGERI 1 SUNGAILIAT</b></font><br>
         <font size="3"><i>Jalan Singayudha 1, Sungailiat-Prov. Bangka Belitung telp. (0717) 92269</i></font>
     </td>
@@ -67,7 +67,6 @@
     @if(!empty($pembayaran)>0)
         <thead>
             <tr>
-                <th>No</th>
                 <th colspan="2">Bulan</th>
                 <th colspan="2">Jatuh Tempo</th>   
                 <th colspan="2">Tanggal Bayar</th>
@@ -77,21 +76,22 @@
         </thead>
 
         <tbody>
-        <?php $i=1; ?>
         @foreach($pembayaran as $data)
         <tr>
-        <td >{{$i}}</td>
         <td colspan="2">{{$data->bulan}}</td>
         <td colspan="2">{{$data->jatuh_tempo}}</td>
         <td colspan="2">{{$data->tgl_bayar}}</td>
         <td colspan="2">{{$data->jumlah}}</td>
         <td colspan="2">{{$data->keterangan}}</td>
         </tr>
-        <?php $i++; ?>
-        @endforeach
         </tbody>
-        @endif
+        <br><br>
     </table>
+        <p>.............., {{$data->tgl_bayar}}</p>
+        <br><br><br>
+        <p>Operator</p>
+        @endforeach
+        @endif
     </div>
     </div>
     </div>

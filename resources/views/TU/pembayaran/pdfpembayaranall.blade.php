@@ -49,13 +49,28 @@
     <div class="card-body">
     
     <table style="width:100%" id="t01">
+        <tr>
+            <td>NIS</td>
+            <td>   : {{ $detail_siswa->NIS}}</td>
+            <td>Kelas</td>
+            <td>   : {{ $detail_siswa->jurusan}} {{ $detail_siswa->urutan}}</td>
+        </tr>
+        <tr>
+            <td>Nama</td>
+            <td>   : {{ $detail_siswa->nama}}</td>
+            <td>Wali Kelas</td>
+            <td>   : {{ $detail_siswa->nama_guru}}</td>
+        </tr>
+    </table>
+    
+    <table style="width:100%" id="t01">
     @if(!empty($pembayaran)>0)
         <thead>
             <tr>
                 <th>No</th>
-                <th colspan="2">Nama</th>
-                <th colspan="2">Kelas</th>
                 <th colspan="2">Bulan</th>
+                <th colspan="2">Jatuh Tempo</th>   
+                <th colspan="2">Tanggal Bayar</th>
                 <th colspan="2">Jumlah</th>
                 <th colspan="2">Keterangan</th> 
             </tr>
@@ -65,10 +80,10 @@
         <?php $i=1; ?>
         @foreach($pembayaran as $data)
         <tr>
-        <td>{{$i}}</td>
-        <td colspan="2">{{$data->nama}}</td>
-        <td colspan="2">{{$data->kelas}} {{$data->jurusan}} {{$data->urutan}}</td>
+        <td >{{$i}}</td>
         <td colspan="2">{{$data->bulan}}</td>
+        <td colspan="2">{{$data->jatuh_tempo}}</td>
+        <td colspan="2">{{$data->tgl_bayar}}</td>
         <td colspan="2">{{$data->jumlah}}</td>
         <td colspan="2">{{$data->keterangan}}</td>
         </tr>

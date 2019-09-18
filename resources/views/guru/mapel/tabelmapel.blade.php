@@ -28,7 +28,7 @@
                             <div class="judul">Data Mata Pelajaran</div>
                             <div class="btnn">
                         @include('include.sosmed')
-                        @include('include.forlogin')
+                        @include('include.forloginguru')
                     </div>
                 </div>
             </div>

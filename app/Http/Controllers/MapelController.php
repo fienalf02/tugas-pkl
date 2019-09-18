@@ -80,16 +80,6 @@ class MapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $mapel = $request->mapel;
-        // $KKM = $request->KKM;
-
-        // $matpel = Mapel::find($id);
-        // $matpel->mapel = $mapel;
-        // $matpel->KKM = $KKM;
-        // $matpel->save();
-
-        // return "mapel berhasil diupdate";
-
         $mapel = Mapel::where('id',$id)->first();
         $mapel->mapel = $request->mapel;
         $mapel->KKM = $request->KKM;
